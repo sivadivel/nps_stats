@@ -1,5 +1,3 @@
-library(Rmpfr)
-
 # Turn off scientific notation
 options(scipen=999)
 
@@ -57,7 +55,7 @@ run_metropolis_MCMC <- function(startvalue, iterations, s = scale.factor){
 }
 
 startvalue = x/sum(x)   # Initial values set to p of x
-chain = run_metropolis_MCMC(startvalue, 1000000)
+chain = run_metropolis_MCMC(startvalue, 100000)
 
 burnIn = 1000
 acceptance = 1-mean(duplicated(chain[-(1:burnIn),]))
